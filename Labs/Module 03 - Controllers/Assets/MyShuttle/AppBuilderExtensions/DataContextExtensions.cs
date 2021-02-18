@@ -24,7 +24,7 @@ namespace MyShuttle.Web.AppBuilderExtensions
                 services.AddEntityFrameworkInMemoryDatabase()
                   .AddDbContext<MyShuttleContext>(options =>
                   {
-                      options.UseInMemoryDatabase();
+                      options.UseInMemoryDatabase("MyShuttle");
                   });
             }
             else

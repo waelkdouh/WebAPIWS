@@ -7,13 +7,17 @@
 
         public static IApplicationBuilder ConfigureRoutes(this IApplicationBuilder app)
         {
-            return app.UseMvc(routes =>
+
+            app.UseRouting();
+
+            return app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
         }
     }
 }
